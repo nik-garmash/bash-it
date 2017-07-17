@@ -117,7 +117,7 @@ ${D_BRANCH_COLOR}%b %r ${D_CHANGES_COLOR}%m%u ${D_DEFAULT_COLOR}"
 
 # checks if the plugin is installed before calling battery_charge
 safe_battery_charge() {
-  if [ -e "${BASH_IT}/plugins/enabled/battery.plugin.bash" ];
+  if command_exists battery_charge ;
   then
     battery_charge
   fi
@@ -211,4 +211,4 @@ ${D_INTERMEDIATE_COLOR}$ ${D_DEFAULT_COLOR}"
 }
 
 # Runs prompt (this bypasses bash_it $PROMPT setting)
-PROMPT_COMMAND=prompt
+safe_append_prompt_command prompt
