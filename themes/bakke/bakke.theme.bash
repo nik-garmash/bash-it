@@ -1,21 +1,17 @@
 #!/usr/bin/env bash
-SCM_THEME_PROMPT_DIRTY=" ${red}✗"
-SCM_THEME_PROMPT_CLEAN=" ${bold_green}✓"
-SCM_THEME_PROMPT_PREFIX=" |"
-SCM_THEME_PROMPT_SUFFIX="${green}|"
 
-GIT_THEME_PROMPT_DIRTY=" ${red}✗"
-GIT_THEME_PROMPT_CLEAN=" ${bold_green}✓"
-GIT_THEME_PROMPT_PREFIX=" ${green}|"
-GIT_THEME_PROMPT_SUFFIX="${green}|"
+light_gray="\[\e[0;37m\]"
+dark_gray="\[\e[0;90m\]"
 
-RVM_THEME_PROMPT_PREFIX="|"
-RVM_THEME_PROMPT_SUFFIX="|"
+SCM_THEME_PROMPT_DIRTY="${dark_gray}•${reset_color}"
+SCM_THEME_PROMPT_CLEAN=""
+SCM_THEME_PROMPT_PREFIX=""
+SCM_THEME_PROMPT_SUFFIX=""
 
 function prompt_command() {
     show_exit_code
 
-    PS1="${bold_cyan}$(scm_char)${green}$(scm_prompt_info)${purple}$(ruby_version_prompt) ${yellow}\h ${reset_color}in ${green}\w ${reset_color}\n${green}→${reset_color} "
+    PS1="${blue}\w${reset_color} ${dark_gray}$(git_prompt_minimal_info) \n${purple}❯${reset_color} "
 }
 
 show_exit_code() {
