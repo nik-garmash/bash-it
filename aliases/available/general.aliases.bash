@@ -12,7 +12,7 @@ fi
 # List directory contents
 alias sl=ls
 alias la='ls -AF'       # Compact view, show hidden
-alias ll='ls -al'
+alias ll='/usr/local/bin/gls -alh --color --group-directories-first'
 alias l='ls -a'
 alias l1='ls -1'
 
