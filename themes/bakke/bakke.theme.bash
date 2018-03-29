@@ -12,7 +12,7 @@ function prompt_command() {
     show_exit_code
     set_window_title
 
-    PS1="\n⌘  "
+    PS1="\n${dark_gray}${PWD/#$HOME/~} ${yellow}$(git_prompt_minimal_info)${reset_color}\n⌘  "
 }
 
 show_exit_code() {
@@ -25,7 +25,7 @@ show_exit_code() {
 }
 
 set_window_title() {
-    echo -ne "\033]0;${PWD/#$HOME/~} $(git_prompt_minimal_info)\007"
+    echo -ne "\033]0;${PWD/#$HOME/~}\007"
 }
 
 safe_append_prompt_command prompt_command
